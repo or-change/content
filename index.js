@@ -1,0 +1,1 @@
+exports.Base = require('./src/base');
