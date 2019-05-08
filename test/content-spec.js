@@ -81,7 +81,7 @@ describe('Content', function () {
 			assert.deepEqual({
 				hash, lang, title, abstract, text, author
 			}, {
-				hash: '5305c75e27f21ba29490a5fe751a123cbce59846a574a5b639d0e1a6f948ab19',
+				hash: '0fa4d93d0eadae34dd571a3be21b637243455a0ad5d1a53d5049d14d78457c51',
 				lang: this.test.content.lang, title: 'title',
 				abstract: 'abstract', text: 'text', author: null
 			});
@@ -93,7 +93,7 @@ describe('Content', function () {
 			});
 
 			assert.deepEqual({hash, lang, title, abstract, text, author}, {
-				hash: '5305c75e27f21ba29490a5fe751a123cbce59846a574a5b639d0e1a6f948ab19',
+				hash: '0fa4d93d0eadae34dd571a3be21b637243455a0ad5d1a53d5049d14d78457c51',
 				lang: 'en', title: 'title',
 				abstract: 'abstract', text: 'text', author: '222'
 			});
@@ -117,7 +117,7 @@ describe('Content', function () {
 			const {hash, lang, title, abstract, text, author} = await this.test.content.read();
 
 			assert.deepEqual({
-				hash: '5305c75e27f21ba29490a5fe751a123cbce59846a574a5b639d0e1a6f948ab19',
+				hash: '0fa4d93d0eadae34dd571a3be21b637243455a0ad5d1a53d5049d14d78457c51',
 				lang: 'en', title: 'title',
 				abstract: 'abstract', text: 'text', author: '11111'
 			}, {hash, lang, title, abstract, text, author});
@@ -131,7 +131,7 @@ describe('Content', function () {
 			const {hash, lang, title, abstract, text, author} = await this.test.content.read();
 
 			assert.deepEqual({
-				hash: '5305c75e27f21ba29490a5fe751a123cbce59846a574a5b639d0e1a6f948ab19',
+				hash: '0fa4d93d0eadae34dd571a3be21b637243455a0ad5d1a53d5049d14d78457c51',
 				lang: 'zh', title: 'title',
 				abstract: 'abstract', text: 'text', author: '11111'
 			}, {hash, lang, title, abstract, text, author});
@@ -145,7 +145,7 @@ describe('Content', function () {
 			const {hash, lang, title, abstract, text, author} = await this.test.content.read('ja');
 
 			assert.deepEqual({
-				hash: '5305c75e27f21ba29490a5fe751a123cbce59846a574a5b639d0e1a6f948ab19',
+				hash: '0fa4d93d0eadae34dd571a3be21b637243455a0ad5d1a53d5049d14d78457c51',
 				lang: 'ja', title: 'title',
 				abstract: 'abstract', text: 'text', author: '11111'
 			}, {hash, lang, title, abstract, text, author});

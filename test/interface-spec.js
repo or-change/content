@@ -11,14 +11,6 @@ describe('Interface', function () {
 				}, new Error('The attribute content is required.'));
 			});
 
-			it('throw an Error when create with no identify', function () {
-				assert.throws(() => {
-					new Interface({
-						content: {}
-					});
-				}, new Error('Attribute content must have identify, read and destroy function'));
-			});
-	
 			it('throw an Error when create with no read', function () {
 				assert.throws(() => {
 					new Interface({
@@ -26,30 +18,7 @@ describe('Interface', function () {
 							identify: function () {}
 						}
 					});
-				}, new Error('Attribute content must have identify, read and destroy function'));
-			});
-	
-			it('throw an Error when create with no destroy', function () {
-				assert.throws(() => {
-					new Interface({
-						content: {
-							identify: function () {},
-							read: function () {}
-						}
-					});
-				}, new Error('Attribute content must have identify, read and destroy function'));
-			});
-
-			it('throw an Error when create with no write', function () {
-				assert.throws(() => {
-					new Interface({
-						content: {
-							identify: function () {},
-							read: function () {},
-							destroy: function () {}
-						}
-					});
-				}, new Error('Attribute content must have identify, read and destroy function'));
+				}, new Error('Attribute content must have read function'));
 			});
 		});
 
@@ -117,26 +86,7 @@ describe('Interface', function () {
 
 						}
 					});
-				}, new Error('Attribute commit must have query, read and write'));
-			});
-	
-			it('throw an Error with create with no write', function () {
-				assert.throws(() => {
-					new Interface({
-						content: {
-							identify: function () {},
-							read: function () {},
-							destroy: function () {},
-							write: function () {}
-						},
-						i18n: {
-							langs: function () {}
-						},
-						commit: {
-							read: function () {}
-						}
-					});
-				}, new Error('Attribute commit must have query, read and write'));
+				}, new Error('Attribute commit must have query, read'));
 			});
 	
 			it('throw an Error with create with no query', function () {
@@ -156,7 +106,7 @@ describe('Interface', function () {
 							write: function () {}
 						}
 					});
-				}, new Error('Attribute commit must have query, read and write'));
+				}, new Error('Attribute commit must have query, read'));
 			});
 		});
 	});

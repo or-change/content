@@ -6,10 +6,8 @@ module.exports = class Interface {
 			throw new Error('The attribute content is required.');
 		}
 
-		if (typeof content.identify !== 'function' ||
-		typeof content.read !== 'function' || typeof content.destroy !== 'function' ||
-		typeof content.write !== 'function') {
-			throw new Error('Attribute content must have identify, read and destroy function');
+		if (typeof content.read !== 'function') {
+			throw new Error('Attribute content must have read function');
 		}
 
 		if (!i18n) {
@@ -25,8 +23,8 @@ module.exports = class Interface {
 		}
 
 		if (typeof commit.query !== 'function' ||
-		typeof commit.read !== 'function' || typeof commit.write !== 'function') {
-			throw new Error('Attribute commit must have query, read and write');
+		typeof commit.read !== 'function') {
+			throw new Error('Attribute commit must have query, read');
 		}
 
 		this.content = {
