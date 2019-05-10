@@ -23,6 +23,10 @@ module.exports = class Content {
 		
 		const commit = await this.base.interface.content.i18n.commit.read(this.id, targetLang);
 
+		if (!commit) {
+			return null;
+		}
+
 		return {
 			lang: targetLang,
 			title: commit.title,
@@ -51,7 +55,7 @@ module.exports = class Content {
 			throw new Error('The lang can not be validated.');
 		}
 
-		const hash = sha256(title + abstract + text); //可能不会对text进行修改
+		const hash = sha256(title + abstract + text + Date.now()); //可能不会对text进行修改
 
 		await this.base.interface.content.write(this.id, this.lang);
 
