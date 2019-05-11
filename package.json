@@ -1,6 +1,6 @@
 {
-  "name": "content",
-  "version": "0.0.2",
+  "name": "@or-change/content",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -22,5 +22,9 @@
   },
   "dependencies": {
     "iso-639-1": "^2.0.5"
-  }
+  },
+  "files": [
+    "/src",
+    "/index.js"
+  ]
 }
