@@ -35,6 +35,16 @@ module.exports = class Base {
 		return new Content(id, this, content.lang);
 	}
 
+	async query(params) {
+		const contentList = await this.interface.content.query(params);
+
+		if (!Array.isArray(contentList)) {
+			throw new Error('The interface query of content MUST return an array.');
+		}
+
+		return contentList.map(content => new Content(content.id, this, content.lang));
+	}
+
 	async create(lang = this.defaultLang) {
 		const id = await this.interface.content.identify();
 

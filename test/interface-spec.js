@@ -132,6 +132,7 @@ describe('Interface', function () {
 		assert.deepEqual(new Interface(interface).content, {
 			identify: interface.content.identify,
 			read: interface.content.read,
+			query: interface.content.query,
 			destroy: interface.content.destroy,
 			write: interface.content.write,
 			i18n: {

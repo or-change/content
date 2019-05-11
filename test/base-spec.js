@@ -86,6 +86,21 @@ describe('Base', function () {
 		});
 	});
 
+	describe('#query()', function () {
+		const storage = {};
+		const base = new Base(createMemory(storage), {
+			defaultLang: 'zh'
+		});
+		
+		it('return an array of Content', async function () {
+			const content = await base.create();
+			await content.write({text: '111'});
+			const contentList = await base.query();
+
+			assert.deepEqual(contentList, [content]);
+		});
+	});
+
 	describe('#remove()', function () {
 		const storage = {};
 		const base = new Base(createMemory(storage), {
@@ -97,7 +112,7 @@ describe('Base', function () {
 			await content.write({text: 'test'});
 			await base.remove(1);
 
-			assert.deepEqual(storage, {})
+			assert.deepEqual(storage, {});
 		});
 
 		it('delete a not existed content instance', async function () {

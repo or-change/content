@@ -13,6 +13,17 @@ module.exports = function (contentMapping = {}) {
 			read(id) {
 				return contentMapping[id];
 			},
+			query() {
+				const result = [];
+
+				for (let key in contentMapping) {
+					contentMapping[key].id = key;
+
+					result.push(contentMapping[key]);
+				}
+				
+				return result;
+			},
 			write(id, lang) {
 				return contentMapping[id] = {
 					lang, commits: []

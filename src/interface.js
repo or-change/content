@@ -30,6 +30,7 @@ module.exports = class Interface {
 		this.content = {
 			identify: content.identify,
 			read: content.read,
+			query: content.query,
 			destroy: content.destroy,
 			write: content.write,
 			i18n: {
