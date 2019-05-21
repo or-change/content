@@ -15,7 +15,7 @@ module.exports = class Content {
 
 	async read(lang = this.lang) {
 		const langs = await this.langs();
-		const targetLang = langs.find(target => [lang, this.lang, this.base.defaultLang].includes(target));
+		const targetLang = [lang, this.lang, this.base.defaultLang].find(target => langs.includes(target));
 
 		if (!targetLang) {
 			return null;
@@ -55,7 +55,7 @@ module.exports = class Content {
 			throw new Error('The lang can not be validated.');
 		}
 
-		const hash = sha256(title + abstract + text); //可能不会对text进行修改
+		const hash = sha256(title + abstract + text); //可能不会对text进行修改，应该是应用层去处理
 
 		await this.base.interface.content.write(this.id, this.lang);
 
